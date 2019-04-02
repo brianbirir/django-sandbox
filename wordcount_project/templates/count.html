@@ -15,8 +15,27 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <h1>COUNT!</h1>
+        <h1>There are {{ count }} words in your text!</h1>
         
+        <h2>Your Text:</h2>
+        <p>{{ fulltext }}</p>
+
+        <h1>Word Count:</h1>
+        
+        <table>
+            <tr>
+                <th>Word</th>
+                <th>Count</th>
+            </tr>
+
+            {% for word, count_total in sorted_words %}
+            <tr>
+                <td>{{ word }}</td>
+                <td>{{ count_total }}</td>
+            </tr>
+            {% endfor %}
+            
+        </table>
         <script src="" async defer></script>
     </body>
 </html>
