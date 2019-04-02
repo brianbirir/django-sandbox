@@ -7,8 +7,8 @@ def home(request):
     return render(request, 'home.html', {'hi_there': 'This is Brian'})
 
 
-def eggs(request):
-    return HttpResponse('Eggs are tasty when scrambled')
+def about(request):
+    return render(request, 'about.html')
 
 
 def count(request):
