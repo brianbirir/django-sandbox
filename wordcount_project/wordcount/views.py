@@ -8,3 +8,8 @@ def home(request):
 
 def eggs(request):
     return HttpResponse('Eggs are tasty when scrambled')
+
+
+def count(request):
+    return render(request, 'count.html')
+    
