@@ -2,13 +2,12 @@
 <!doctype html>
 <html lang="en">
   <head>
-    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Album example · Bootstrap</title>
+    <title>{{ blog.title }}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
@@ -35,7 +34,7 @@
     <link href="album.css" rel="stylesheet">
   </head>
   <body>
-  
+
   <header>
     <div class="collapse bg-dark" id="navbarHeader">
       <div class="container">
@@ -65,13 +64,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'all_blogs' %}">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% static 'django_cheatsheet.pdf' %}">Resume</a>
+            <a class="nav-link" href="/blog">Blog</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -79,43 +75,17 @@
         </ul>
       </div>
     </nav>
-
-
 </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">Hi! I'm Brian</h1>
-      <p class="lead text-muted">Hey! My name is Brian and I love coding!</p>
-      <p>
-        <a href="#" class="btn btn-primary my-2">Main call to action</a>
-        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-      </p>
-      <img src="{% static 'nick.jpg'%}">
+        <h3>{{ blog.title }}</h3>
+        {{ blog.pub_date_pretty }}
+        <br />
+        <img class="img-fluid" src="{{ blog.image.url }}" width="200"/>
+        <br />
+        <p>{{ blog.body }}</p>
     </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}" />
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-
-      </div>
-    </div>
-  </div>
 
 </main>
     <footer class="text-muted">
@@ -123,10 +93,10 @@
            <p>&copy; Brian Birir {% now "Y" %}</p>
         </div>
     </footer>
-    
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-      
+
     </body>
 </html>
