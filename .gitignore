@@ -135,6 +135,13 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# static and media assets
 static
+assets
+
+# IDEs
+.vscode
+.idea
+
 
 # End of https://www.gitignore.io/api/django
